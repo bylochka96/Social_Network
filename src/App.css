@@ -7,28 +7,3 @@
     grid-gap: 5px;
     grid-template-areas: 'h h' 'n c';
 }
-
-.header {
-    grid-area: h;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: lightseagreen;
-}
-
-.nav {
-    grid-area: n;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: peachpuff;
-}
-
-.content {
-    grid-area: c;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 1%;
-}
-
-header img {
-    width: 5%;
-}

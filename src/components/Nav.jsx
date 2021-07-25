@@ -1,12 +1,14 @@
+import style from'./Nav.module.css'
+
 const Nav = () => {
     return (
-        <nav className='nav'>
-            <div><a href='#Profile'>Profile</a></div>
-            <div><a href='#Message'>Message</a></div>
-            <div><a href='#News'>News</a></div>
-            <div><a href='#Music'>Music</a></div>
+        <nav className={style.nav}>
+            <div className={style.item}><a href='#Profile'>Profile</a></div>
+            <div className={style.item}><a href='#Message'>Message</a></div>
+            <div className={style.item}><a href='#News'>News</a></div>
+            <div className={style.item}><a href='#Music'>Music</a></div>
             <br/>
-            <div><a href='#Settings'>Settings</a></div>
+            <div className={style.item}><a href='#Settings'>Settings</a></div>
         </nav>
     )
 }

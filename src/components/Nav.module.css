@@ -1,0 +1,16 @@
+.nav {
+    grid-area: n;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: peachpuff;
+}
+
+.item a:active, a {
+    color: darkorchid;
+    text-decoration-line: none;
+}
+
+.item a:visited {
+    color: darkorchid;
+    decoration: none;
+}
