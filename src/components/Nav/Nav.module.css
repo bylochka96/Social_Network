@@ -3,6 +3,7 @@
     border: 1px solid black;
     border-radius: 10px;
     background-color: peachpuff;
+    padding: 5%;
 }
 
 .item a:active, a {
@@ -13,4 +14,8 @@
 .item a:visited {
     color: darkorchid;
     decoration: none;
+}
+
+.item a.selectedLink{
+    color: red;
 }
