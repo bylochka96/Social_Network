@@ -3,7 +3,7 @@ import MyPosts from './MyPosts/MyPosts'
 
 const Profile = () => {
     return (
-        <div className={style.profile}>
+        <div>
             <div>
                 <img src="http://world-countries.net/wp-content/uploads/2015/05/Bondi-Bich-Avstraliya.jpg"
                      alt="content"/>
