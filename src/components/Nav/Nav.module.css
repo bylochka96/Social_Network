@@ -16,6 +16,6 @@
     decoration: none;
 }
 
-.item a.selectedLink{
+.item a.isSelected{
     color: red;
 }

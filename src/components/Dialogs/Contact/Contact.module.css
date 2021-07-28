@@ -1,0 +1,7 @@
+.contact {
+    padding: 2%;
+}
+
+.contact .isSelected {
+    color: #ff0000;
+}

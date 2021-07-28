@@ -5,19 +5,19 @@ const Nav = () => {
     return (
         <nav className={style.nav}>
             <div className={style.item}>
-                <NavLink to='/profile' activeClassName={style.selectedLink}>Profile</NavLink>
+                <NavLink to='/profile' activeClassName={style.isSelected}>Profile</NavLink>
             </div>
             <div className={style.item}>
-                <NavLink to='/dialogs' activeClassName={style.selectedLink}>Message</NavLink>
+                <NavLink to='/dialogs' activeClassName={style.isSelected}>Message</NavLink>
             </div>
             <div className={style.item}>
-                <NavLink to='/news' activeClassName={style.selectedLink}>News</NavLink></div>
+                <NavLink to='/news' activeClassName={style.isSelected}>News</NavLink></div>
             <div className={style.item}>
-                <NavLink to='/music' activeClassName={style.selectedLink}>Music</NavLink>
+                <NavLink to='/music' activeClassName={style.isSelected}>Music</NavLink>
             </div>
             <br/>
             <div className={style.item}>
-                <NavLink to='/settings' activeClassName={style.selectedLink}>Settings</NavLink>
+                <NavLink to='/settings' activeClassName={style.isSelected}>Settings</NavLink>
             </div>
         </nav>
     )

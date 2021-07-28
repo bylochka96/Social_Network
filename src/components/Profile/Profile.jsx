@@ -1,17 +1,12 @@
 import style from './Profile.module.css'
 import MyPosts from './MyPosts/MyPosts'
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = () => {
     return (
         <div>
-            <div>
-                <img src="http://world-countries.net/wp-content/uploads/2015/05/Bondi-Bich-Avstraliya.jpg"
-                     alt="content"/>
-            </div>
-            <div>
-                ava + description
-            </div>
-            <MyPosts />
+            <ProfileInfo/>
+            <MyPosts/>
         </div>
     )
 }

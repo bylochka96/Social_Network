@@ -3,8 +3,8 @@ import Post from "./Post/Post";
 
 const MyPosts = () => {
     return (
-        <div>
-            My posts
+        <div className={style.myPostsWrapper}>
+            <h3>My posts</h3>
             <div>
                 <textarea name="" id="" cols="80" rows="5"></textarea>
                 <br/>
