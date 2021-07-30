@@ -1,14 +1,9 @@
 import style from './MyPosts.module.css'
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    let postData = [
-        {id: 0, message: 'Hi, my name is...', likesCount: 1},
-        {id: 1, message: 'Keep silience!', likesCount: 5}
-    ];
-
-    let postMapper = postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+    let postMapper = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
     return (
         <div className={style.myPostsWrapper}>
