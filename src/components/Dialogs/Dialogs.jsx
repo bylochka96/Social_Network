@@ -5,8 +5,8 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
 
-    let contactsMapper = props.contacts.map(contact => <Contact name={contact.name} id={contact.id}/>);
-    let messagesMapper = props.messages.map(m => <Message text={m.message}/>);
+    let contactsMapper = props.state.contactsData.map(contact => <Contact name={contact.name} id={contact.id}/>);
+    let messagesMapper = props.state.messagesData.map(m => <Message text={m.message}/>);
 
     return (
         <div className={style.dialogs}>
