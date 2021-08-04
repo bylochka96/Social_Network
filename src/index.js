@@ -4,29 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from "./redux/state";
-//
-// let postData = [
-//     {id: 0, message: 'Hi, my name is...', likesCount: 1},
-//     {id: 1, message: 'Keep silience!', likesCount: 5}
-// ];
-//
-// let contactsData = [
-//     {id: 0, name: 'Efim'},
-//     {id: 1, name: 'Vasya'},
-//     {id: 2, name: 'Alina'},
-//     {id: 3, name: 'Vita'},
-//     {id: 4, name: 'Vlad'}
-// ];
-//
-// let messagesDara = [
-//     {id: 0, message: 'LOL its work!'},
-//     {id: 0, message: 'Samurai way'},
-//     {id: 0, message: 'How are u doing?'}
-// ];
+import {updatePosts} from "./redux/state";
 
 ReactDOM.render(
     <React.StrictMode>
-        <App state={state}/>
+        <App state={state} addPost={updatePosts}/>
     </React.StrictMode>,
     document.getElementById('root')
 );

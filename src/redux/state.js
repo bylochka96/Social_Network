@@ -21,4 +21,10 @@ let state = {
     }
 }
 
+
+export let updatePosts = (textContent) => {
+    let newPost = {id: 777 , message: textContent, likesCount: 777};
+    state.profilePage.postData.push(newPost);
+}
+
 export default state;
