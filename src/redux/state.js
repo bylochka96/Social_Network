@@ -1,9 +1,12 @@
+import {renderTree} from "../render";
+
 let state = {
     profilePage: {
         postData: [
             {id: 0, message: 'Hi, my name is...', likesCount: 1},
             {id: 1, message: 'Keep silience!', likesCount: 5}
-        ]
+        ],
+        newPostValue: 'samurai way'
     },
     dialogsPage: {
         contactsData: [
@@ -22,9 +25,16 @@ let state = {
 }
 
 
-export let updatePosts = (textContent) => {
-    let newPost = {id: 777 , message: textContent, likesCount: 777};
+export let createPost = () => {
+    let newPost = {id: 777, message: state.profilePage.newPostValue, likesCount: 777};
     state.profilePage.postData.push(newPost);
+    state.profilePage.newPostValue = '';
+    renderTree(state);
 }
+
+export let updateTextArea = (textValue) => {
+    state.profilePage.newPostValue = textValue;
+    renderTree(state);
+};
 
 export default state;
