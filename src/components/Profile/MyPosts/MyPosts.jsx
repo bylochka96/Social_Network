@@ -7,10 +7,10 @@ const MyPosts = (props) => {
     let postMapper = props.profilePage.postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
     let newPostArea = React.createRef();
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type:'CREATE-POST'});
     }
     let onTextAreaChange = () => {
-        props.updateTextArea(newPostArea.current.value)
+        props.dispatch({type:'UPDATE-TEXT-AREA', textValue: newPostArea.current.value})
     }
 
     return (

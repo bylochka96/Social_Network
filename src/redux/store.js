@@ -22,23 +22,32 @@ let store = {
             ]
         }
     },
+    _callSubscriber() {
+    },
+
     getState() {
         return this._state
     },
-    _callSubscriber() {
+    subscribe(observer) {
+        this._callSubscriber = observer;
     },
-    createPost() {
+
+    _createPost() {
         let newPost = {id: 777, message: this._state.profilePage.newPostValue, likesCount: 777};
         this._state.profilePage.postData.push(newPost);
         this._state.profilePage.newPostValue = '';
         this._callSubscriber(this._state);
     },
-    updateTextArea(textValue) {
+    _updateTextArea(textValue) {
         this._state.profilePage.newPostValue = textValue;
         this._callSubscriber(this._state);
     },
-    subscribe(observer) {
-        this._callSubscriber = observer;
+    dispatch(action) {
+        if (action.type === 'CREATE-POST') {
+            this._createPost()
+        } else if (action.type === 'UPDATE-TEXT-AREA') {
+            this._updateTextArea(action.textValue)
+        }
     }
 }
 
