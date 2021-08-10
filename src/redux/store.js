@@ -1,3 +1,6 @@
+const UPDATE_TEXT_AREA = 'UPDATE-TEXT-AREA';
+const CREATE_POST = 'CREATE-POST';
+
 let store = {
     _state: {
         profilePage: {
@@ -24,14 +27,12 @@ let store = {
     },
     _callSubscriber() {
     },
-
     getState() {
         return this._state
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-
     _createPost() {
         let newPost = {id: 777, message: this._state.profilePage.newPostValue, likesCount: 777};
         this._state.profilePage.postData.push(newPost);
@@ -43,12 +44,21 @@ let store = {
         this._callSubscriber(this._state);
     },
     dispatch(action) {
-        if (action.type === 'CREATE-POST') {
+        if (action.type === CREATE_POST) {
             this._createPost()
-        } else if (action.type === 'UPDATE-TEXT-AREA') {
+        } else if (action.type === UPDATE_TEXT_AREA) {
             this._updateTextArea(action.textValue)
         }
     }
+}
+
+export const addPostActionCreater = () => {
+    return {type: CREATE_POST}
+}
+
+export const onTextAreaChangeActionCreator = (text) => {
+
+    return {type: UPDATE_TEXT_AREA, textValue: text}
 }
 
 window.store = store;

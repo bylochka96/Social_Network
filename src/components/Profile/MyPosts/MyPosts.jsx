@@ -1,16 +1,20 @@
 import style from './MyPosts.module.css'
 import Post from "./Post/Post";
 import React from 'react';
+import {addPostActionCreater, onTextAreaChangeActionCreator} from "../../../redux/store";
+
+
+
 
 const MyPosts = (props) => {
 
     let postMapper = props.profilePage.postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
     let newPostArea = React.createRef();
     let addPost = () => {
-        props.dispatch({type:'CREATE-POST'});
+        props.dispatch(addPostActionCreater());
     }
     let onTextAreaChange = () => {
-        props.dispatch({type:'UPDATE-TEXT-AREA', textValue: newPostArea.current.value})
+        props.dispatch(onTextAreaChangeActionCreator(newPostArea.current.value))
     }
 
     return (
