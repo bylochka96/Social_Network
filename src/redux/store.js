@@ -1,5 +1,8 @@
-const UPDATE_TEXT_AREA = 'UPDATE-TEXT-AREA';
+const UPDATE_POST_AREA = 'UPDATE-POST-AREA';
 const CREATE_POST = 'CREATE-POST';
+
+const UPDATE_MESSAGE_AREA = 'UPDATE-MESSAGE-AREA';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let store = {
     _state: {
@@ -22,7 +25,8 @@ let store = {
                 {id: 0, message: 'LOL its work!'},
                 {id: 0, message: 'Samurai way'},
                 {id: 0, message: 'How are u doing?'}
-            ]
+            ],
+            newMessageValue: ''
         }
     },
     _callSubscriber() {
@@ -39,26 +43,48 @@ let store = {
         this._state.profilePage.newPostValue = '';
         this._callSubscriber(this._state);
     },
-    _updateTextArea(textValue) {
+    _updatePostArea(textValue) {
         this._state.profilePage.newPostValue = textValue;
         this._callSubscriber(this._state);
+    },
+    _sendMessage() {
+        let newMessage = {id: 0, message: this._state.dialogsPage.newMessageValue};
+        this._state.dialogsPage.messagesData.push(newMessage);
+        this._state.dialogsPage.newMessageValue = '';
+        this._callSubscriber(this._state);
+    }
+    ,
+    _updateMessageArea(textValue) {
+        this._state.dialogsPage.newMessageValue = textValue;
+        this._callSubscriber()
     },
     dispatch(action) {
         if (action.type === CREATE_POST) {
             this._createPost()
-        } else if (action.type === UPDATE_TEXT_AREA) {
-            this._updateTextArea(action.textValue)
+        } else if (action.type === UPDATE_POST_AREA) {
+            this._updatePostArea(action.textValue)
+        } else if (action.type === UPDATE_MESSAGE_AREA) {
+            this._updateMessageArea(action.textValue)
+        } else if (action.type === SEND_MESSAGE) {
+            this._sendMessage()
         }
     }
-}
+};
 
 export const addPostActionCreater = () => {
     return {type: CREATE_POST}
-}
+};
 
-export const onTextAreaChangeActionCreator = (text) => {
+export const onPostAreaChangeActionCreator = (text) => {
+    return {type: UPDATE_POST_AREA, textValue: text}
+};
 
-    return {type: UPDATE_TEXT_AREA, textValue: text}
+export const onMessageAreaChangeActionCreator = (text) => {
+    return {type: UPDATE_MESSAGE_AREA, textValue: text}
+};
+
+export const sendMessageActionCreater = () => {
+    return {type: SEND_MESSAGE}
 }
 
 window.store = store;

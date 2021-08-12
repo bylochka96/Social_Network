@@ -3,16 +3,20 @@ import {NavLink} from "react-router-dom";
 import Contact from "./Contact/Contact";
 import Message from "./Message/Message";
 import React from "react";
+import {onMessageAreaChangeActionCreator, sendMessageActionCreater} from "../../redux/store";
 
 const Dialogs = (props) => {
 
-    let contactsMapper = props.state.contactsData.map(contact => <Contact name={contact.name} id={contact.id}/>);
-    let messagesMapper = props.state.messagesData.map(m => <Message text={m.message}/>);
-
+    let contactsMapper = props.dialogsPage.contactsData.map(contact => <Contact name={contact.name} id={contact.id}/>);
+    let messagesMapper = props.dialogsPage.messagesData.map(m => <Message text={m.message}/>);
     let newMessageArea = React.createRef();
+    let onMessageAreaChange = () => {
+        props.dispatch(onMessageAreaChangeActionCreator(newMessageArea.current.value));
+        // alert(newMessageArea.current.value)
+    };
     let sendMessage = () => {
 
-        alert(newMessageArea.current.value);
+        props.dispatch(sendMessageActionCreater())
     }
 
     return (
@@ -24,7 +28,7 @@ const Dialogs = (props) => {
             <div className={style.messages}>
                 {messagesMapper}
                 <div>
-                    <textarea ref={newMessageArea} cols="80" rows="5"></textarea>
+                    <textarea onChange={onMessageAreaChange} value={props.dialogsPage.newMessageValue} ref={newMessageArea} cols="80" rows="5"></textarea>
                     <br/>
                     <button onClick={sendMessage}>Add POST</button>
                 </div>
