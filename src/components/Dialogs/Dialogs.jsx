@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import Contact from "./Contact/Contact";
 import Message from "./Message/Message";
 import React from "react";
-import {onMessageAreaChangeActionCreator, sendMessageActionCreater} from "../../redux/store";
+import {onMessageAreaChangeActionCreator, sendMessageActionCreater} from "../../redux/dialogsReducer";
 
 const Dialogs = (props) => {
 
@@ -12,7 +12,6 @@ const Dialogs = (props) => {
     let newMessageArea = React.createRef();
     let onMessageAreaChange = () => {
         props.dispatch(onMessageAreaChangeActionCreator(newMessageArea.current.value));
-        // alert(newMessageArea.current.value)
     };
     let sendMessage = () => {
 
@@ -28,7 +27,8 @@ const Dialogs = (props) => {
             <div className={style.messages}>
                 {messagesMapper}
                 <div>
-                    <textarea onChange={onMessageAreaChange} value={props.dialogsPage.newMessageValue} ref={newMessageArea} cols="80" rows="5"></textarea>
+                    <textarea onChange={onMessageAreaChange} value={props.dialogsPage.newMessageValue}
+                              ref={newMessageArea} cols="80" rows="5"></textarea>
                     <br/>
                     <button onClick={sendMessage}>Add POST</button>
                 </div>

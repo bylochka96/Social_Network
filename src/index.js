@@ -1,10 +1,10 @@
-import store from "./redux/store";
+import store from "./redux/reduxStore";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 
 
-let renderTree = () => {
+let renderTree = (props) => {
     ReactDOM.render(
         <BrowserRouter>
             <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
