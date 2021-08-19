@@ -7,6 +7,6 @@ let allReducers = combineReducers({
     dialogsPage: dialogsReducer
 });
 
-let store = createStore(allReducers);
+let reduxStore = createStore(allReducers);
 
-export default store;
+export default reduxStore;

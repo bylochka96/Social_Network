@@ -1,6 +1,6 @@
 const UPDATE_MESSAGE_AREA = 'UPDATE-MESSAGE-AREA';
 const SEND_MESSAGE = 'SEND-MESSAGE';
-let initialState = {
+const initialState = {
     contactsData: [
         {id: 0, name: 'Efim'},
         {id: 1, name: 'Vasya'},

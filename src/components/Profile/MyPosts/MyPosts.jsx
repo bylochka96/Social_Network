@@ -1,28 +1,27 @@
 import style from './MyPosts.module.css'
 import Post from "./Post/Post";
 import React from 'react';
-import {addPostActionCreater, onPostAreaChangeActionCreator} from "../../../redux/profileReducer";
 
 
 const MyPosts = (props) => {
 
-    let postMapper = props.profilePage.postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+    let postMapper = props.postData.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
     let newPostArea = React.createRef();
 
     let onPostAreaChange = () => {
-        props.dispatch(onPostAreaChangeActionCreator(newPostArea.current.value))
+        props.updateNewPostArea(newPostArea.current.value);
     }
 
     let addPost = () => {
-        props.dispatch(addPostActionCreater());
+        props.addPost();
     }
 
     return (
         <div className={style.myPostsWrapper}>
             <h3>My posts</h3>
             <div>
-                <textarea onChange={onPostAreaChange} ref={newPostArea} value={props.profilePage.newPostValue} cols="80"
-                          rows="5"></textarea>
+                <textarea onChange={onPostAreaChange} ref={newPostArea} value={props.newPostValue} cols="80"
+                          rows="5"/>
                 <br/>
                 <button onClick={addPost}>Add POST</button>
             </div>

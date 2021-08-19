@@ -1,11 +1,6 @@
-.post a:active, a {
+.post span{
     color: greenyellow;
     text-decoration-line: none;
-}
-
-.post a:visited {
-    color: green;
-    decoration: none;
 }
 
 .post img {

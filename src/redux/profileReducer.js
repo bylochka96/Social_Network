@@ -1,6 +1,6 @@
 const UPDATE_POST_AREA = 'UPDATE-POST-AREA';
 const CREATE_POST = 'CREATE-POST';
-let initialState = {
+const initialState = {
     postData: [
         {id: 0, message: 'Hi, my name is...', likesCount: 1},
         {id: 1, message: 'Keep silience!', likesCount: 5}
@@ -19,7 +19,7 @@ export const onPostAreaChangeActionCreator = (text) => {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_POST:
-            let newPost = {id: 777, message: state.newPostValue, likesCount: 777};
+            let newPost = {id: 717, message: state.newPostValue, likesCount: 666};
             state.postData.push(newPost);
             state.newPostValue = '';
             return state;
