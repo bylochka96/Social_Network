@@ -8,5 +8,5 @@ let allReducers = combineReducers({
 });
 
 let reduxStore = createStore(allReducers);
-
+window.store = reduxStore;
 export default reduxStore;

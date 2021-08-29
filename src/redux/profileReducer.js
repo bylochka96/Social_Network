@@ -5,7 +5,7 @@ const initialState = {
         {id: 0, message: 'Hi, my name is...', likesCount: 1},
         {id: 1, message: 'Keep silience!', likesCount: 5}
     ],
-        newPostValue: ''
+    newPostValue: ''
 };
 
 export const addPostActionCreater = () => {
@@ -18,14 +18,20 @@ export const onPostAreaChangeActionCreator = (text) => {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case CREATE_POST:
+        case CREATE_POST: {
             let newPost = {id: 717, message: state.newPostValue, likesCount: 666};
-            state.postData.push(newPost);
-            state.newPostValue = '';
-            return state;
-        case UPDATE_POST_AREA:
-            state.newPostValue = action.textValue;
-            return state;
+            return {
+                ...state,
+                postData: [...state.postData, newPost],
+                newPostValue: ''
+            };
+        }
+        case UPDATE_POST_AREA: {
+            return {
+                ...state,
+                newPostValue: action.textValue
+            }
+        }
         default:
             return state;
     }
