@@ -17,6 +17,10 @@ const Nav = () => {
             </div>
             <br/>
             <div className={style.item}>
+                <NavLink to='/users' activeClassName={style.isSelected}>Users</NavLink>
+            </div>
+            <br/>
+            <div className={style.item}>
                 <NavLink to='/settings' activeClassName={style.isSelected}>Settings</NavLink>
             </div>
         </nav>
