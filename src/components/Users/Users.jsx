@@ -15,11 +15,12 @@ let Users = (props) => {
 
   return (
     <div>
-      <button onClick={getUsers}>get Users from Server</button>
+      <button className={style.getUsers} onClick={getUsers}>get Users from Server</button>
+
       {
         props.users.map((user) => {
           return (
-            <div key={user.id}>
+            <div className={style.user} key={user.id}>
                         <span>
                             <div>
                                 <img src={user.photos.small != null ? user.avaURL : defAvatar} alt="avatar"

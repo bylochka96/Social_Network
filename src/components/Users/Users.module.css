@@ -1,4 +1,12 @@
 .userAvatar{
     width: 100px;
     height: 100px;
+    border: 1px solid lightseagreen;
+    border-radius: 0 25%;
+}
+.getUsers{
+    margin-bottom: 10px;
+}
+.user{
+    margin: 10px;
 }
