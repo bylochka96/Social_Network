@@ -4,20 +4,16 @@ import * as axios from "axios";
 import defAvatar from "../../assets/images/default-avatar.jpg";
 
 class Users extends React.Component {
-  getUsers = () => {
-    if (this.props.users.length === 0) {
-      axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-        this.props.setUsers(response.data.items)
-      })
-
-    }
+  constructor() {
+    super();
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+      this.props.setUsers(response.data.items)
+    });
   }
 
   render() {
     return (
       <div>
-        <button className={style.getUsers} onClick={this.getUsers}>get Users from Server</button>
-
         {
           this.props.users.map((user) => {
             return (
